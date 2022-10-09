@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import { SWRConfig } from "swr";
 
 export default function Page({ title, img, subtitle, description, author }) {
+    console.log("title",title)
   // const router = useRouter()
   // const { postId } = router.query;
   // const { data, isLoading, isError } = useFetcher(`api/posts/${postId}`)
@@ -53,37 +54,37 @@ export default function Page({ title, img, subtitle, description, author }) {
   );
 }
 
-function Article({ title, img, subtitle, description, author }) {
-  return (
-    <Format>
-      <section className="container mx-auto md:px-2 py-16 w-1/2">
-        <div className="flex justify-center">
-          {author ? <Author {...author}></Author> : <></>}
-        </div>
+// function Article({ title, img, subtitle, description, author }) {
+//   return (
+//     <Format>
+//       <section className="container mx-auto md:px-2 py-16 w-1/2">
+//         <div className="flex justify-center">
+//           {author ? <Author {...author}></Author> : <></>}
+//         </div>
 
-        <div className="post py-10">
-          <h1 className="font-bold text-4xl text-center pb-5">
-            {title || "No Title"}
-          </h1>
+//         <div className="post py-10">
+//           <h1 className="font-bold text-4xl text-center pb-5">
+//             {title || "No Title"}
+//           </h1>
 
-          <p className="text-gray-500 text-xl text-center">
-            {subtitle || "No Title"}
-          </p>
+//           <p className="text-gray-500 text-xl text-center">
+//             {subtitle || "No Title"}
+//           </p>
 
-          <div className="py-10">
-            <Image src={img || "/"} width={900} height={600}></Image>
-          </div>
+//           <div className="py-10">
+//             <Image src={img || "/"} width={900} height={600}></Image>
+//           </div>
 
-          <div className="content text-gray-600 text-lg flex flex-col gap-4">
-            {description || "No Description"}
-          </div>
-        </div>
+//           <div className="content text-gray-600 text-lg flex flex-col gap-4">
+//             {description || "No Description"}
+//           </div>
+//         </div>
 
-        <Ralated></Ralated>
-      </section>
-    </Format>
-  );
-}
+//         <Ralated></Ralated>
+//       </section>
+//     </Format>
+//   );
+// }
 
 export async function getServerSideProps({ params }) {
   const posts = await getPost(params.postId);

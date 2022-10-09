@@ -9,8 +9,8 @@ import Section3 from "../components/Section3";
 import Section4 from "../components/Section4";
 import fetcher from "../lib/useFetcher";
 
-export default function Home({ data1, data2, data3, data4 }) {
-  console.log("data was returned", data1);
+export default function Home() {
+  // console.log("data was returned", data1);
   return (
     <Format>
       <Section1></Section1>
