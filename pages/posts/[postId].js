@@ -3,7 +3,7 @@ import Author from '../../components/_child/author'
 import Image from 'next/image'
 import Ralated from '../../components/_child/ralated'
 import getPost from '../../lib/helper'
-import fetcher from '../../lib/fetcher';
+import useFetcher from '../../lib/useFetcher';
 import Spinner from '../../components/_child/spinner'
 import ErrorComponent from '../../components/_child/error'
 import { useRouter } from 'next/router'
@@ -13,7 +13,7 @@ export default function Page({ fallback }){
 
     const router = useRouter()
     const { postId } = router.query;
-    const { data, isLoading, isError } = fetcher(`api/posts/${postId}`)
+    const { data, isLoading, isError } = useFetcher(`api/posts/${postId}`)
 
     if(isLoading) return <Spinner></Spinner>
     if(isError) return <ErrorComponent></ErrorComponent>

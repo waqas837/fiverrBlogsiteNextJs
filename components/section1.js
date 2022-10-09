@@ -6,14 +6,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
-import fetcher from '../lib/fetcher'
+import useFetcher from '../lib/useFetcher'
 import Spinner from "./_child/spinner"
 import Error from "./_child/error"
 
 
-export default function section1() {
+export default function Section1() {
 
-    const { data, isLoading, isError } = fetcher('api/trending')
+    const { data, isLoading, isError } = useFetcher('api/trending')
     
     if(isLoading) return <Spinner></Spinner>;
     if(isError) return <Error></Error>

@@ -1,13 +1,13 @@
 import Link from "next/link"
 import Image from "next/image"
 import Author from "./author"
-import fetcher from "../../lib/fetcher"
+import useFetcher from "../../lib/useFetcher"
 import Spinner from "./spinner"
 import Error from "./error"
 
 export default function Ralated() {
 
-    const { data, isLoading, isError } = fetcher('api/posts')
+    const { data, isLoading, isError } = useFetcher('api/posts')
     
     if(isLoading) return <Spinner></Spinner>;
     if(isError) return <Error></Error>

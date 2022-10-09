@@ -2,14 +2,14 @@ import Author from "./_child/author"
 import Link from "next/link"
 import Image from "next/image"
 
-import fetcher from '../lib/fetcher'
+import useFetcher from '../lib/useFetcher'
 import Spinner from "./_child/spinner"
 import Error from "./_child/error"
 
 
-export default function section4() {
+export default function Section4() {
 
-    const { data, isLoading, isError } = fetcher('api/popular')
+    const { data, isLoading, isError } = useFetcher('api/popular')
     
     if(isLoading) return <Spinner></Spinner>;
     if(isError) return <Error></Error>
